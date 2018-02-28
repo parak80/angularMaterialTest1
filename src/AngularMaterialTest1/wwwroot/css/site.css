@@ -28,7 +28,9 @@ textarea {
 {
     width: 100%;
 }
-
+.md-ripple-container {
+    background-color:#437ece;
+}
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
   /* Hide captions */
