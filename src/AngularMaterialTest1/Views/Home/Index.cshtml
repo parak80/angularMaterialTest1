@@ -1,55 +1,198 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
-    <md-content>
+    <md-content layout-sm="30" flex-gt-md="70" flex-lg="100" flex-gt-xs="100" flex-gt-xl="100">
         <md-tabs md-dynamic-height="" md-border-bottom="">
-            <md-tab label="Home">
-                <md-content class="md-padding">
-                    <h1 class="md-display-2">Home</h1>
-                    <p>Välkommen att söka i EssVisions diarium
-Här finns möjlighet att söka efter inkommande och utgående ärenden och handlingar som registrerats i kommunens diarium. Här finns också möjlighet att söka via datum. Uppgifterna blir tillgängliga ca 1 timme efter de registrerats.
+            <md-tab label="Sök">
+                <md-content class="md-padding" flex-gt-sm="50">
+                    <div class="Sform">
+                        <div ng-controller="SearchCtrl">
+                            <md-content class="searchTitle">
+                                <h3>Sök bland 100 Förtroendevalda i Nystads kommun</h3>
+                            </md-content>    
+                            <md-input-container>
+                                <label class="labelN">Förnamn</label>
+                                <input ng-model="user.name" class="name" style="margin-left:50px; width:250px"placeholder="please enter your name...">
+                            </md-input-container>
 
-Ett ärende som registrerats tilldelas ett årtal samt nummer och benämns ”diarienummer” (ex 2010/64).
+                            <md-input-container style="display:block">
+                                <label class="labelL">Efternamn</label>
+                                <input ng-model="user.lastName" class="lastName" style="margin-left:50px; width:250px" placeholder="please enter your lastname...">
+                            </md-input-container>
+                        </div>
 
-Till ett ärende kan finnas flera handlingar. En handling kan vara en inkommen eller avgående skrivelse. En handling kan också vara ett beslut i ett ärende som behandlats på sammanträde med nämndens beredande organ (s k arbetsutskott) eller som behandlats vid sammanträde med nämnden. Alla handlingar tilldelas ett nummer som föregås av årtal och benämns ”handlingsnummer” (ex 2010.1206). Det går bra att även söka handlingar genom att ange datum.
+                        <div ng-controller="SelectCtrl">
+                            <div layout="row">
+                                <md-input-container>
+                                    <label class="labelP">Parti</label>
+                                    
+                                        <md-select ng-model="selectedItem" md-selected-text="getSelectedText()" class="md-no-underline" style="width:250px; margin-left:70px">
+                                            <md-optgroup label="items">
+                                                <md-option ng-value="item" ng-repeat="item in items">Item {{item}}</md-option>
+                                            </md-optgroup>
+                                        </md-select>
+                                    </md-input-container>
+                            </div>
+                        </div>
 
-Om någon av ikonerna    visas finns ett dokument antingen i Word, PDF eller Excel-format kopplat till handlingen. Klicka på symbolen, ett fönster öppnas och det kopplade dokumentet visas på skärmen.
+                        <div ng-controller="SelectCtrl">
+                            <div layout="row">
+                                <md-input-container>
+                                    <label class="labelNS">Nämnd/Styrelse</label>
 
-Vissa rubriker innehåller sorteringsmöjlighet.
+                     
+                                        <md-select ng-model="selectedItem" md-selected-text="getSelectedText()" class="md-no-underline" style="width:250px; margin-left:70px">
+                                            <md-optgroup label="items">
+                                                <md-option ng-value="item" ng-repeat="item in items">Item {{item}}</md-option>
+                                            </md-optgroup>
+                                        </md-select>
+                                    </md-input-container>
+                              
+                            </div>
+                        </div>
 
-Ärenden och handlingar som är registrerade efter den 1 januari 2006 går att söka ur följande nämnders diarium (varje nämnd är en egen myndighet och har ett eget diarium):
+                        <div ng-controller="SelectCtrl">
+                            <div layout="row">
+                                <md-input-container>
+                                    <label class="labelB">Bostadsort</label>
+                                        <md-select ng-model="selectedItem" md-selected-text="getSelectedText()" class="md-no-underline" style="width:250px; margin-left:70px">
+                                            <md-optgroup label="items">
+                                                <md-option value="item" ng-repeat="item in items">Item {{item}}</md-option>
+                                            </md-optgroup>
+                                        </md-select>
+                                    </md-input-container>
+                            </div>
+                        </div>
 
-Fritids- och kulturnämnden - Fkn
-Kommunstyrelsen - Ks (inkluderar även kommunfullmäktige - Kf)
-Omsorgsnämnden - On
-
-Uppgifter ur byggnadsnämndens och barn- och utbildningsnämndens diarium finns inte idag tillgängliga på XXXXX kommuns hemsida.
-
-Reglerna för kommunens arbete med allmänna handlingar och Din rätt att ta del av dem återfinns i bl a tryckfrihetsförordningen (TF), offentlighets- och sekretesslagen (OSL), personuppgiftslagen (PuL) samt personuppgiftsförordningen (PuF).
-
-Vid sökning kan begreppet. </p>
-                </md-content>
+                        <div ng-controller="SelectCheckBCtrl">
+                            <div flex-gt-sm="50">
+                                    <p style="margin-left:-220px">Sök även bland ej aktiva förtroendevalda</p>
+                                    <md-checkbox ng-model="data.cb1" aria-label="Checkbox" style="margin-left:220px; margin-top:-30px" ng-checked="isChecked()">
+                                        Checkbox: {{ data.cb1 }}
+                                    </md-checkbox>
+                            </div>
+                        </div>
+                        <div ng-controller="btnCtrl" flex>
+                            <md-button class="md-primary" aria-label="Sök" type="button">
+                                Sök
+                            </md-button>
+                        </div>
+                </div>
+        </md-content>
             </md-tab>
-            <md-tab label="Handling">
+            <md-tab label="Nämnder">
                 <md-content class="md-padding">
-                    <h1 class="md-display-2">Handling</h1>
+                    <h3 class="md-display-2">Nämnder</h3>
                     <p>LNullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor.</p>
                     <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor.</p>
                     <p>Integer turpis finibus commodo lectus.</p>
+                    <form ng-submit="$event.preventDefault()">
+                        <p>Use <code>md-autocomplete</code> to search for matches from local or remote data sources.</p>
+                        <md-autocomplete ng-disabled="ctrl.isDisabled"
+                                         md-no-cache="ctrl.noCache"
+                                         md-selected-item="ctrl.selectedItem"
+                                         md-search-text-change="ctrl.searchTextChange(ctrl.searchText)"
+                                         md-search-text="ctrl.searchText"
+                                         md-selected-item-change="ctrl.selectedItemChange(item)"
+                                         md-items="item in ctrl.querySearch(ctrl.searchText)"
+                                         md-item-text="item.display"
+                                         md-min-length="0"
+                                         placeholder="What is your favorite US state?">
+                            <md-item-template>
+                                <span md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</span>
+                            </md-item-template>
+                            <md-not-found>
+                                No states matching "{{ctrl.searchText}}" were found.
+                                <a ng-click="ctrl.newState(ctrl.searchText)">Create a new one!</a>
+                            </md-not-found>
+                        </md-autocomplete>
+                        <br />
+                        <md-checkbox ng-model="ctrl.simulateQuery">Simulate query for results?</md-checkbox>
+                        <md-checkbox ng-model="ctrl.noCache">Disable caching of queries?</md-checkbox>
+                        <md-checkbox ng-model="ctrl.isDisabled">Disable the input?</md-checkbox>
+
+                        <p>By default, <code>md-autocomplete</code> will cache results when performing a query.  After the initial call is performed, it will use the cached results to eliminate unnecessary server requests or lookup logic. This can be disabled above.</p>
+                    </form>
                 </md-content>
             </md-tab>
-            <md-tab label="Ärende">
+            <md-tab label="Partier">
                 <md-content class="md-padding">
-                    <h1 class="md-display-2">Ärende</h1>
-                    <p>Integer turpis erat, lectus.</p>
+                    <h1 class="md-display-2">Partier</h1>
+                    <div layout="row" layout-padding layout-wrap layout-fill style="padding-bottom: 32px;" ng-cloak>
+                        <md-whiteframe class="md-whiteframe-1dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
+                            <span>.md-whiteframe-1dp</span>
+                        </md-whiteframe>
+                        <md-whiteframe class="md-whiteframe-2dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
+                            <span>.md-whiteframe-2dp</span>
+                        </md-whiteframe>
+                        <md-whiteframe class="md-whiteframe-3dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
+                            <span>.md-whiteframe-3dp</span>
+                        </md-whiteframe>
+                        <md-whiteframe class="md-whiteframe-4dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
+                            <span>.md-whiteframe-4dp</span>
+                        </md-whiteframe>
+                        <md-whiteframe class="md-whiteframe-5dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
+                            <span>.md-whiteframe-5dp</span>
+                        </md-whiteframe>
+                        <md-whiteframe class="md-whiteframe-6dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
+                            <span>.md-whiteframe-6dp</span>
+                        </md-whiteframe>
+                        <md-whiteframe class="md-whiteframe-7dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
+                            <span>.md-whiteframe-7dp</span>
+                        </md-whiteframe>
+                        <md-whiteframe class="md-whiteframe-8dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
+                            <span>.md-whiteframe-8dp</span>
+                        </md-whiteframe>
+                        <md-whiteframe class="md-whiteframe-9dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
+                            <span>.md-whiteframe-9dp</span>
+                        </md-whiteframe>
+                        <md-whiteframe class="md-whiteframe-10dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
+                            <span>.md-whiteframe-10dp</span>
+                        </md-whiteframe>
+                        <md-whiteframe class="md-whiteframe-11dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
+                            <span>.md-whiteframe-11dp</span>
+                        </md-whiteframe>
+                        <md-whiteframe class="md-whiteframe-12dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
+                            <span>.md-whiteframe-12dp</span>
+                        </md-whiteframe>
+                        <md-whiteframe class="md-whiteframe-13dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
+                            <span>.md-whiteframe-13dp</span>
+                        </md-whiteframe>
+                        <md-whiteframe class="md-whiteframe-14dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
+                            <span>.md-whiteframe-14dp</span>
+                        </md-whiteframe>
+                        <md-whiteframe class="md-whiteframe-15dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
+                            <span>.md-whiteframe-15dp</span>
+                        </md-whiteframe>
+                        <md-whiteframe class="md-whiteframe-16dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
+                            <span>.md-whiteframe-16dp</span>
+                        </md-whiteframe>
+                        <md-whiteframe class="md-whiteframe-17dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
+                            <span>.md-whiteframe-17dp</span>
+                        </md-whiteframe>
+                        <md-whiteframe class="md-whiteframe-18dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
+                            <span>.md-whiteframe-18dp</span>
+                        </md-whiteframe>
+                        <md-whiteframe class="md-whiteframe-19dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
+                            <span>.md-whiteframe-19dp</span>
+                        </md-whiteframe>
+                        <md-whiteframe class="md-whiteframe-20dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
+                            <span>.md-whiteframe-20dp</span>
+                        </md-whiteframe>
+                        <md-whiteframe class="md-whiteframe-21dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
+                            <span>.md-whiteframe-21dp</span>
+                        </md-whiteframe>
+                        <md-whiteframe class="md-whiteframe-22dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
+                            <span>.md-whiteframe-22dp</span>
+                        </md-whiteframe>
+                        <md-whiteframe class="md-whiteframe-23dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
+                            <span>.md-whiteframe-23dp</span>
+                        </md-whiteframe>
+                        <md-whiteframe class="md-whiteframe-24dp" flex-sm="45" flex-gt-sm="35" flex-gt-md="25" layout layout-align="center center">
+                            <span>.md-whiteframe-24dp</span>
+                        </md-whiteframe>
+                    </div>
                 </md-content>
             </md-tab>
         </md-tabs>
-        <md-button class="btn-primary"></md-button>
-        <style>
-            .btn-danger{
-                background:initial;
-                display:block;
-            }
-        </style>
     </md-content>

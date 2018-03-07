@@ -7,8 +7,8 @@
 -debug:full
 -nostdlib
 -nologo
-"C:\Users\PC\Source\Repos\System.Linq.Dynamic.ApiFilter\AngularMaterialTest1\src\AngularMaterialTest1\obj\Debug\netcoreapp1.0\dotnet-compile.assemblyinfo.cs"
--out:"C:\Users\PC\Source\Repos\System.Linq.Dynamic.ApiFilter\AngularMaterialTest1\src\AngularMaterialTest1\bin\Debug\netcoreapp1.0\AngularMaterialTest1.dll"
+"C:\Users\PC\Source\Repos\System.Linq.Dynamic.ApiFilter\angularMaterialTest1\src\AngularMaterialTest1\obj\Debug\netcoreapp1.0\dotnet-compile.assemblyinfo.cs"
+-out:"C:\Users\PC\Source\Repos\System.Linq.Dynamic.ApiFilter\angularMaterialTest1\src\AngularMaterialTest1\bin\Debug\netcoreapp1.0\AngularMaterialTest1.dll"
 -r:"C:\Users\PC\.nuget\packages\Microsoft.AspNetCore.Antiforgery\1.0.1\lib\netstandard1.3\Microsoft.AspNetCore.Antiforgery.dll"
 -r:"C:\Users\PC\.nuget\packages\Microsoft.AspNetCore.Authorization\1.0.0\lib\netstandard1.3\Microsoft.AspNetCore.Authorization.dll"
 -r:"C:\Users\PC\.nuget\packages\Microsoft.AspNetCore.Cors\1.0.0\lib\netstandard1.3\Microsoft.AspNetCore.Cors.dll"
@@ -186,7 +186,7 @@
 -r:"C:\Users\PC\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll"
 -r:"C:\Users\PC\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll"
 -r:"C:\Users\PC\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll"
--resource:"C:\Users\PC\Source\Repos\System.Linq.Dynamic.ApiFilter\AngularMaterialTest1\src\AngularMaterialTest1\obj\Debug\netcoreapp1.0\AngularMaterialTest1dotnet-compile.deps.json",AngularMaterialTest1.deps.json
-"C:\Users\PC\Source\Repos\System.Linq.Dynamic.ApiFilter\AngularMaterialTest1\src\AngularMaterialTest1\Program.cs"
-"C:\Users\PC\Source\Repos\System.Linq.Dynamic.ApiFilter\AngularMaterialTest1\src\AngularMaterialTest1\Startup.cs"
-"C:\Users\PC\Source\Repos\System.Linq.Dynamic.ApiFilter\AngularMaterialTest1\src\AngularMaterialTest1\Controllers\HomeController.cs"
+-resource:"C:\Users\PC\Source\Repos\System.Linq.Dynamic.ApiFilter\angularMaterialTest1\src\AngularMaterialTest1\obj\Debug\netcoreapp1.0\AngularMaterialTest1dotnet-compile.deps.json",AngularMaterialTest1.deps.json
+"C:\Users\PC\Source\Repos\System.Linq.Dynamic.ApiFilter\angularMaterialTest1\src\AngularMaterialTest1\Program.cs"
+"C:\Users\PC\Source\Repos\System.Linq.Dynamic.ApiFilter\angularMaterialTest1\src\AngularMaterialTest1\Startup.cs"
+"C:\Users\PC\Source\Repos\System.Linq.Dynamic.ApiFilter\angularMaterialTest1\src\AngularMaterialTest1\Controllers\HomeController.cs"

@@ -1,4 +1,44 @@
-﻿(function () {
+﻿angular
+module()
+var items = angular.module('items', []);
+var text = angular.module('text', []);
+var app = angular.module('app', ['items', 'text']);
+
+//items.controller('SearchCtrl', function ($scope) {
+//    $scope.user = {
+//        name: ''
+//    }
+//    $scope.lastName = {
+//        lastName: ''
+//    }
+//});
+
+items.controller('SearchCtrl', function ($scope) {
+    $scope.title1 = 'Button';
+});
+
+text.controller('SelectCtrl', function ($scope) {
+    $scope.text.items = [parti1, parti2, parti3, parti4];
+    $scope.selectedItem;
+    $scope.getSelectedText = function () {
+        if ($scope.selectedItem !== undefined) {
+            return $scope.selectedItem;
+        } else {
+            return "Please select an item";
+        }
+    };
+});
+
+app.controller('SelectCheckBCtrl', function ($scope) {
+
+    $scope.data = {};
+    $scope.data.cb1 = false;
+    $scope.isChecked = function () {
+        return $scope.selected.length === $scope.items.length;
+    };
+});
+
+(function () {
     'use strict';
     angular
         .module('autocompleteDemo', ['ngMaterial'])
@@ -22,14 +62,6 @@
             alert("Sorry! You'll need to create a Constitution for " + state + " first!");
         }
 
-        // ******************************
-        // Internal methods
-        // ******************************
-
-        /**
-         * Search for states... use $timeout to simulate
-         * remote dataservice call.
-         */
         function querySearch(query) {
             var results = query ? self.states.filter(createFilterFor(query)) : self.states,
                 deferred;
@@ -49,10 +81,6 @@
         function selectedItemChange(item) {
             $log.info('Item changed to ' + JSON.stringify(item));
         }
-
-        /**
-         * Build `states` list of key/value pairs
-         */
         function loadAll() {
             var allStates = 'Alabama, Alaska, Arizona, Arkansas, California, Colorado, Connecticut, Delaware,\
               Florida, Georgia, Hawaii, Idaho, Illinois, Indiana, Iowa, Kansas, Kentucky, Louisiana,\
@@ -70,6 +98,7 @@
             });
         }
 
+      
         /**
          * Create filter function for a query string
          */
@@ -77,7 +106,7 @@
             var lowercaseQuery = angular.lowercase(query);
 
             return function filterFn(state) {
-                return (state.value.indexOf(lowercaseQuery) === 0);
+                return state.value.indexOf(lowercaseQuery) === 0;
             };
 
         }
