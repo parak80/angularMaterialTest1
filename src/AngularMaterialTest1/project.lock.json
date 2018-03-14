@@ -67,6 +67,22 @@
           "lib/dotnet5.4/EntityFramework.Core.dll": {}
         }
       },
+      "EntityFramework.MicrosoftSqlServer/7.0.0-rc1-final": {
+        "type": "package",
+        "dependencies": {
+          "EntityFramework.Relational": "7.0.0-rc1-final",
+          "System.Data.SqlClient": "4.0.0-beta-23516",
+          "System.Text.Encoding.CodePages": "4.0.1-beta-23516",
+          "System.Threading.Thread": "4.0.0-beta-23516",
+          "System.Threading.ThreadPool": "4.0.10-beta-23516"
+        },
+        "compile": {
+          "lib/dotnet5.4/EntityFramework.MicrosoftSqlServer.dll": {}
+        },
+        "runtime": {
+          "lib/dotnet5.4/EntityFramework.MicrosoftSqlServer.dll": {}
+        }
+      },
       "EntityFramework.Relational/7.0.0-rc1-final": {
         "type": "package",
         "dependencies": {
@@ -4386,7 +4402,7 @@
           "System.Threading": "4.0.11"
         },
         "compile": {
-          "ref/netstandard1.3/_._": {}
+          "ref/netstandard1.3/System.Text.Encoding.CodePages.dll": {}
         },
         "runtimeTargets": {
           "runtimes/unix/lib/netstandard1.3/System.Text.Encoding.CodePages.dll": {
@@ -4800,6 +4816,21 @@
         "lib/net451/EntityFramework.Core.xml",
         "lib/netcore50/EntityFramework.Core.dll",
         "lib/netcore50/EntityFramework.Core.xml"
+      ]
+    },
+    "EntityFramework.MicrosoftSqlServer/7.0.0-rc1-final": {
+      "sha512": "FMB2MgT5aXMF7qGMwf5AGcmpNFoT4s1w0QJ5h+L8W4gyMxWpYamGp9hms7rOSAWY44ZDl5ZMpxiTfu3nY3Nqeg==",
+      "type": "package",
+      "path": "EntityFramework.MicrosoftSqlServer/7.0.0-rc1-final",
+      "files": [
+        "EntityFramework.MicrosoftSqlServer.7.0.0-rc1-final.nupkg.sha512",
+        "EntityFramework.MicrosoftSqlServer.nuspec",
+        "lib/dotnet5.4/EntityFramework.MicrosoftSqlServer.dll",
+        "lib/dotnet5.4/EntityFramework.MicrosoftSqlServer.xml",
+        "lib/net451/EntityFramework.MicrosoftSqlServer.dll",
+        "lib/net451/EntityFramework.MicrosoftSqlServer.xml",
+        "lib/netcore50/EntityFramework.MicrosoftSqlServer.dll",
+        "lib/netcore50/EntityFramework.MicrosoftSqlServer.xml"
       ]
     },
     "EntityFramework.Relational/7.0.0-rc1-final": {
@@ -11651,6 +11682,7 @@
       "Angular.Material >= 1.1.7",
       "EntityFramework >= 6.2.0",
       "EntityFramework.Core >= 7.0.0-rc1-final",
+      "EntityFramework.MicrosoftSqlServer >= 7.0.0-rc1-final",
       "EntityFramework.Relational >= 7.0.0-rc1-final",
       "Microsoft.AspNet.Mvc >= 5.2.4",
       "Microsoft.AspNet.Mvc.Core >= 6.0.0-rc1-final",

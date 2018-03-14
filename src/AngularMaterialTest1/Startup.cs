@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using AngularMaterialTest1.Models;
 
 namespace AngularMaterialTest1
 {
@@ -30,17 +31,19 @@ namespace AngularMaterialTest1
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
-            services.AddDbContext<DbContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("Data Source=;Initial Catalog=formDB;Integrated Security=True"))
-            );
             services.AddMvc();
-            SqlConnection myConn = new SqlConnection("Data Source=;Initial Catalog=formDB;Integrated Security=True");
-            
+            services
+            .AddEntityFramework()
+            .AddSqlServer()
+            .AddDbContext<SearchContext>(
+            Options => Options.UseSqlServer(@"Data Source=(localdb)\mssqllocaldb;Initial Catalog=formDB;Integrated Security=True; Pooling=False"));     
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
+            app.UseDeveloperExceptionPage();
+            app.UseStaticFiles();
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
@@ -56,12 +59,12 @@ namespace AngularMaterialTest1
 
             app.UseStaticFiles();
 
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+            //app.UseMvc(routes =>
+            //{
+            //    routes.MapRoute(
+            //        name: "default",
+            //        template: "{controller=Home}/{action=Index}/{id?}");
+            //});
         }
     }
 }
