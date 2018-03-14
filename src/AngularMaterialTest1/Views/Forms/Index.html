@@ -1,0 +1,18 @@
+﻿@model List<ListFromViewModel>
+               <h1>Search here:</h1>
+               <table>
+                   <tr>
+                       <th>Namn</th>
+                       <th>Efternamn</th>
+                       <th>Sökt</th>
+                   </tr>
+                   @foreach(var item in Model)
+                   {
+                   <tr>
+                       <td>@item.Name</td>
+                     
+                       <td>@item.Searched</td>
+
+                   </tr>
+                   }
+               </table>

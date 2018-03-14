@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
@@ -28,7 +30,12 @@ namespace AngularMaterialTest1
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+            services.AddDbContext<DbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("Data Source=;Initial Catalog=formDB;Integrated Security=True"))
+            );
             services.AddMvc();
+            SqlConnection myConn = new SqlConnection("Data Source=;Initial Catalog=formDB;Integrated Security=True");
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

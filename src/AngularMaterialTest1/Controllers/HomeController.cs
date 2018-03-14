@@ -8,15 +8,15 @@ namespace AngularMaterialTest1.Controllers
 {
     public class HomeController : Controller
     {
+        FormContext _context;
+        public HomeController(FormContext context)
+        {
+            _context = context;
+        }
         public IActionResult Index()
         {
             return View();
         }
-
-        //public IActionResult AutoComplete()
-        //{
-        //    return View();
-        //}
 
         public IActionResult Error()
         {

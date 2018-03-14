@@ -1,8 +1,8 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    width:100%;
 }
-
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {
@@ -22,21 +22,22 @@ select {
     line-height: 1.4;
 }
 
+.md-select-value{
+    display:block;
+}
 /* Make .svg files in the carousel display properly in older browsers */
-.carousel-inner .item img[src$=".svg"]
-{
+.carousel-inner .item img {
     width: 100%;
 }
-.md-ripple-container {
-    /*background-color:#437ece;*/
-}
-.whiteframedemoBasicClassUsage {
+
+/*.whiteframedemoBasicClassUsage {*/
   /* For breakpoint `-xs` */
   /* For breakpoint `-sm` */
   /* For breakpoint `-md` */
   /* For breakpoint `-gt-md` */
-}
-  .whiteframedemoBasicClassUsage md-whiteframe {
+/* } */ 
+
+ .whiteframedemoBasicClassUsage md-whiteframe {
     background: #fff;
     height: 100px;
   }
@@ -45,15 +46,14 @@ select {
       margin-right:30px;
       height:50px;
       max-width:20%;
-      /*border-radius:2px;*/
   }
-  md-tabs-canvas{
+  .topTabs{
+      background-color:#437ece;
+      height:30px;
+  }
+ .md-tabs-data, .md-tabs-wrapper{
       background-color:#dce7f9;
-      height:0px;
-      position:fixed;
-  }
-  md-tab{
-      color:black;
+      height:170px;
   }
   .btn-danger {                  
       background:initial;
@@ -64,6 +64,13 @@ select {
       width:100%; 
       max-height:100%;
   }
+  .vertIpad{
+      display:none;
+  }
+  .md-tabs{
+      color:black;
+      height:70px;
+  }
  .searchTitle {
       position:relative; 
       background-color:#437ece;
@@ -72,6 +79,7 @@ select {
       height:70px; 
       text-align:center;
       margin-top:-20px;
+      padding:8px;
   }
  .Sform{
      background-color:#DCE7F9;
@@ -80,49 +88,114 @@ select {
       margin-left:-200px;
       color:black;
   }
+  .name, .lastName{
+      margin-left:50px; 
+      width:250px;
+  }
+  .selectP, .selectNS, .selectB{
+      width:250px; 
+      margin-left:50px;
+      /*border:1px solid;*/
+  }
+  .md-checkbox, .md-container{
+      margin-top:-30px;
+      margin-left:148px; 
+  }
+  .checkBoxSearch{
+      margin-top:-30px;
+      margin-left:148px; 
+  }
+  .checkboxT{
+      margin-left:-220px;
+      margin-top:30px;
+  }
   .md-primary, .md-button{
       background-color:green;
       width:200px; 
       margin-left:-50px;
   }
+
   @media (max-width: 599px) {
     .whiteframedemoBasicClassUsage md-whiteframe {
       margin: 10px;
       height: 50px;
-      background-color: #c8e4fa; }
+      background-color: #c8e4fa; 
+    }
     .whiteframedemoBasicClassUsage md-whiteframe > span {
-      font-size: 0.4em; } }
-   /*@media (min-width: 935px) {
-    .whiteframedemoBasicClassUsage md-whiteframe {
-      margin: 50px;
-      height: 75px; }*/
+      font-size: 0.4em; 
+    } 
+    .md-tabs{
+    display:none;
+    }
+   #vertI{
+        display:block;
+   }
+    .webTab{
+        display:none;
+    }
+  }
   @media (min-width: 600px) and (max-width: 959px) {
     .whiteframedemoBasicClassUsage md-whiteframe {
       margin: 50px;
-      height: 75px; }
-    .whiteframedemoBasicClassUsage md-whiteframe > span {
-      font-size: 0.6em; } }
+      height: 75px; 
+    }
+    #vertI{
+      display:block;
+    }
+    .webTab{
+        display:none;
+    }
+    .md-tabs{
+        display:none;
+    }
+  }
   @media (min-width: 960px) and (max-width: 1279px) {
     .whiteframedemoBasicClassUsage md-whiteframe {
       margin-bottom: 30px;
       height: 70px;
-      background-color: #fcddde; }
+      background-color: #fcddde; 
+    }
     .whiteframedemoBasicClassUsage md-whiteframe > span {
       font-size: 0.9em;
       margin-bottom:30px;
       height:70px;
-    } }
+    } 
+    #vertI{
+        display:none;
+    }
+    .webTab{
+        display:block;
+    }
+  }
   @media (min-width: 1280px) {
     .whiteframedemoBasicClassUsage md-whiteframe {
       margin: 55px;
       height: 100px;
-      background-color: #F2FCE2; }
+      background-color: #F2FCE2; 
+    }
     .whiteframedemoBasicClassUsage md-whiteframe > span {
-      font-size: 1.0em; } }
+      font-size: 1.0em; 
+    }
+    .webTab{
+        display:block;
+    }
+  }
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 767px) {
   /* Hide captions */
   .carousel-caption {
     display: none
   }
+  .webTab{
+      display:none;
+  }
+  .material-icons.vertIpad{
+      display:block;
+  }
+  .md-tab #vertI{
+      display:block;
+  }
+   .md-tabs{
+       display:none;
+   }
 }

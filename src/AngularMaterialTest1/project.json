@@ -10,7 +10,7 @@
       "version": "1.0.0-preview2-final",
       "type": "build"
     },
-    "Microsoft.AspNetCore.Routing": "1.0.1",
+    "Microsoft.AspNetCore.Routing": "2.0.2",
     "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0",
     "Microsoft.AspNetCore.Server.Kestrel": "1.0.1",
     "Microsoft.AspNetCore.StaticFiles": "1.0.0",
@@ -21,7 +21,16 @@
     "Microsoft.Extensions.Logging.Debug": "1.0.0",
     "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
-    "Angular.Material": "1.1.7"
+    "Angular.Material": "1.1.7",
+    "System.Data.SqlClient": "4.1.0",
+    "Microsoft.EntityFrameworkCore.SqlServer": "1.0.1",
+    "Microsoft.jQuery.Unobtrusive.Validation": "3.2.3",
+    "Microsoft.AspNet.Mvc.Razor": "6.0.0-rc1-final",
+    "EntityFramework.Core": "7.0.0-rc1-final",
+    "EntityFramework.Relational": "7.0.0-rc1-final",
+    "Microsoft.AspNet.Mvc.Core": "6.0.0-rc1-final",
+    "EntityFramework": "6.2.0",
+    "Microsoft.AspNet.Mvc": "5.2.4"
   },
 
   "tools": {
